@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Object</title>
+</head>
+<body>
+  <h1>Object</h1>
+
+  <script>
+    // const person = new Object();
+    const person = {};
+    person.name = 'ilbuni';
+    person.age = 15;
+
+    // 매소드 (속성인데, 값이 함수인)
+    person.introduce = function () {
+      console.log('안녕하세요')
+    };
+    
+    // 개선
+
+    function Person(nickname, age) {
+      this.nickname = nickname;
+      this.age = age;
+    }
+    // prototype 중요
+    Person.prototype.introduce = function () {
+      console.log(this.nickname, this.age)
+    }
+
+    const person1 = new Person('일분이', 10)
+    const person2 = new Person('이분이', 8)
+
+    person1.introduce();
+    person2.introduce();
+
+  </script>
+</body>
+</html>
