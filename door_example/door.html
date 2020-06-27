@@ -62,11 +62,18 @@
     .door:nth-child(1) .door-body { background: rgba(255, 0, 0);}
     .door:nth-child(2) .door-body { background: rgba(0, 255, 0);}
     .door:nth-child(3) .door-body { background: rgba(0, 0, 255);}
-    .door:hover .door-body {
+    /* .door:hover .door-body {
       transform: perspective(800px) rotateY(-110deg);
       transform-origin: left;
     }
     .door:hover .ilbuni {
+      transform: translate3d(0, 0, 0);
+    } */
+    .door-opened .door-body {
+      transform: perspective(800px) rotateY(-110deg);
+      transform-origin: left;
+    }
+    .door-opened .ilbuni {
       transform: translate3d(0, 0, 0);
     }
   </style>
@@ -86,5 +93,28 @@
       <div class="door-body"></div>
     </div>
   </div>
+  <script>
+    (function() {
+      const stageElem = document.querySelector('.stage');
+
+      let currentItem;
+
+      function doorHandler(event) {
+        const targetElem = event.target;
+
+        
+        if (currentItem) {
+          currentItem.classList.remove('door-opened');
+        }
+        if (targetElem.classList.contains('door-body')){
+          targetElem.parentNode.classList.add('door-opened');
+          currentItem = targetElem.parentNode;
+        }
+        
+      }
+
+      stageElem.addEventListener('click', doorHandler);
+    })();
+  </script>
 </body>
 </html>
