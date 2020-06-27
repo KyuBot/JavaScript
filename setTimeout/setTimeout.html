@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Interactive Web</title>
+</head>
+<body>
+  
+
+  <script>
+    let timeId;
+
+    function sample() {
+      console.log('sample')
+      timeId = requestAnimationFrame(sample);
+    };
+    sample();
+    // cancelAnimationFrame(timeId);
+
+    // timeId = setTimeout(sample, 3000);
+    // clearTimeout(timeId);
+
+    // timeId = setInterval(sample, 1000);
+    // clearInterval(timeId);
+
+  </script>
+</body>
+</html>
